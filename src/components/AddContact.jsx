@@ -8,26 +8,20 @@ function AddContact({ addContactHandler }) {
   const add = () => {
     if (data.name === "" && data.email === "") {
       alert("Muditu yelathaium fill panuda boomer uh");
-      return;
+    } else {
+      console.log(data);
+      addContactHandler(data);
+      setData({
+        name: "",
+        email: "",
+      });
     }
-    console.log(data);
-    addContactHandler(data);
-    setData({
-      name: "",
-      email: "",
-    });
   };
 
   return (
     <div className="ui main">
       <h1>Add Contact</h1>
-      <form
-        onSubmit={(e) => {
-          add();
-          e.preventDefault();
-        }}
-        className="ui form"
-      >
+      <div className="ui form">
         <div className="field">
           <label>Name</label>
           <input
@@ -53,8 +47,10 @@ function AddContact({ addContactHandler }) {
             placeholder="Email"
           />
         </div>
-        <button className="ui button blue">Add</button>
-      </form>
+        <button onClick={add} className="ui button blue">
+          Add
+        </button>
+      </div>
     </div>
   );
 }
