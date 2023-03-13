@@ -6,7 +6,6 @@ import Header from "./Header";
 import "./App.css";
 
 function App() {
- 
   const [contacts, setContacts] = useState([]);
 
   //retriveContacts
